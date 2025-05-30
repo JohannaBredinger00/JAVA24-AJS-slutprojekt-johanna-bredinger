@@ -1,0 +1,36 @@
+{
+  "homepage": "https://JohannaBredinger00.github.io/JAVA24-AJS-slutprojekt-johanna-bredinger",
+
+  
+
+  "name": "parcel-boilerplate",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "parcel ./src/index.html",
+    "build": "parcel build ./src/index.html --dist-dir docs --public-url ./",
+    "clean": "del-cli ./.parcel-cache ./dist ./docs"
+    
+  
+
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.7",
+    "autoprefixer": "^10.4.21",
+    "buffer": "^6.0.3",
+    "del-cli": "^6.0.0",
+    "gh-pages": "^6.3.0",
+    "parcel": "^2.15.2",
+    "postcss": "^8.5.3",
+    "process": "^0.11.10",
+    "tailwindcss": "^4.1.7"
+  },
+  "dependencies": {
+    "firebase": "^11.8.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
