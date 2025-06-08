@@ -41,6 +41,7 @@ const groupedTasks = {
 
 // Lägger varje uppgift i rätt grupp
 tasks.forEach((task) => {
+  if(!task || !task.status) return;
     if (groupedTasks[task.status]) {
         groupedTasks[task.status].push(task);
     }
@@ -51,7 +52,7 @@ return (
       <h1 className="text-3xl font-extrabold text-center mb-8 text-blue-900">Scrum Board</h1>
   
       {/* Filterpanel */}
-      <FilterSortPanel filters={filters} setFilters={setFilters} />
+      
   
       {/* Scrumboard med tre kolumner */}
       <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -84,39 +85,3 @@ return (
 };
 export default TaskBoard;
 
-
-
-
-// return (
-//     <div>
-//         {/* Kompontent för filtrering och sortering*/}
-//         <FilterSortPanel filters = {filters} setFilters = {setFilters} />
-
-//         {/* Tre kolumner: new, in-progress, finished */}
-//         <div className="grid grid-cols-3 gap-4">
-//             {['new', 'in-progress', 'finished'].map(status => (
-//                 <div key={status}>
-//                     <h2 className ="text-xl font-bold capitalize">{status}</h2>
-
-//                     {/* Filtrerar och sorterar uppgifterna inom varje status */}
-//                     {groupedTasks[status]
-//                     .filter(t => (filters.member ? t.member === filters.member : true))
-//                     .filter(t => (filters.category ? t.category === filters.category : true))
-//                     .sort((a, b) => {
-//                         if(filters.sort === 'timestamp-desc') return b.timestamp - a.timestamp;
-//                         if(filters.sort === 'timestamp-asc') return a.timestamp - b.timestamp;
-//                         if(filters.sort === 'title-asc') return a.assignment.localeCompare(b.assignment);
-//                         if(filters.sort === 'title-desc') return b.assignment.localeCompare(a.assignment);
-//                         return 0;
-//                     })
-
-//                     // Renderar varje uppgift som en TaskCard
-//                     .map(task => (
-//                     <TaskCard key={task.id} task={task} taskId={task.id}/>
-//                     ))}
-//                     </div>
-//                  ))}
-//         </div>
-//     </div>
-//     );
-// };

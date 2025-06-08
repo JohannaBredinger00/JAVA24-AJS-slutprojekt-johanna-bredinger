@@ -14,7 +14,7 @@ const MemberForm = () => {
         const membersRef = ref(database, 'scrumboard/members');
         await push(membersRef, {
             name,
-            role
+            category: role
         });
 
         setName('');
