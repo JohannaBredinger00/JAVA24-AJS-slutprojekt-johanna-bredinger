@@ -1,5 +1,3 @@
-import React from 'react';
-
 const FilterSortPanel = ({ filters = {}, setFilters }) => {
 
     const safeFilters = {

@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState} from 'react';
 import { ref, onValue} from 'firebase/database';
 import{database} from '../services/firebase';
@@ -7,6 +8,8 @@ import FilterSortPanel from './FilterSortPanel';
 const TaskBoard = () => { 
     // Skapar tillstånd för alla uppgifter
     const [tasks, setTasks] = useState([]);
+
+const [members, setMembers] = useState([]);
 
 // Skapar tillstånd för filter och sprtering 
 const [filters, setFilters] = useState({
@@ -26,6 +29,8 @@ useEffect (() => {
             ...value
         })) : [];
         setTasks(taskList);
+
+        
     });
     
     return () => unsubscribe();
@@ -52,8 +57,16 @@ return (
       <h1 className="text-3xl font-extrabold text-center mb-8 text-blue-900">Scrum Board</h1>
   
       {/* Filterpanel */}
+
+      <FilterSortPanel
+      filters={filters}
+      setFilters={setFilters}
+      members={members}
+      categories={['ux', 'frontend', 'backend']}
+    />
+     
       
-  
+      
       {/* Scrumboard med tre kolumner */}
       <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
         {['new', 'in-progress', 'finished'].map((status) => (

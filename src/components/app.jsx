@@ -13,7 +13,7 @@ export function App(){
             <TaskBoard/>
             <TaskCard/>
             <MemberForm/>
-            <FilterSortPanel/>
+            {/* <FilterSortPanel/> */}
         </>
     )
 }
